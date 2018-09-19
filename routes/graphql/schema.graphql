@@ -1,0 +1,13 @@
+#import user.graphql
+
+extend type Mutation @group(namespace: "App\\Http\\GraphQL\\Mutations") {
+  login(
+    email: String!
+    password: String!
+  ): LoginPayload @field(resolver: "AccountMutator@login")
+}
+
+type LoginPayload {
+    status: String!
+    token: String!
+}
