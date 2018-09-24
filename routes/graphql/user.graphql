@@ -13,14 +13,18 @@ type Mutation {
         email: String @rules(apply: ["required", "email", "unique:users,email"])
         password: String @bcrypt @rules(apply: ["required"])
     ): User @create(model: "App\\User")
+
+    deleteUser(
+        id: ID @rules(apply: ["required"])
+    ): User @delete(model: "App\\User")
+}
+
+extend type Mutation @group(middleware: ["jwt.auth"]) {
     updateUser(
         id: ID @rules(apply: ["required"])
         name: String
         email: String @rules(apply: ["email"])
     ): User @update(model: "App\\User")
-    deleteUser(
-        id: ID @rules(apply: ["required"])
-    ): User @delete(model: "App\\User")
 }
 
 type User {
