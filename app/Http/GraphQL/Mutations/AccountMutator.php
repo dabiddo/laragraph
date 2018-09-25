@@ -32,4 +32,14 @@ class AccountMutator
         ]);
 
     }
+
+    /*
+     * Refresh JWT
+     */
+    public function refresh()
+    {
+        return ([
+            'status' => 'success'
+        ]);
+    }
 }
