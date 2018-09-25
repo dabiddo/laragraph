@@ -22,4 +22,14 @@ class AccountMutator
             'token' => $token
         ]);
     }
+
+    public function logout($root, array $args) {
+
+        JWTAuth::invalidate();
+        return ([
+            'status' => 'success',
+            'msg' => 'Logged out Successfully.'
+        ]);
+
+    }
 }

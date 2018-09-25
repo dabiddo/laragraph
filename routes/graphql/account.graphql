@@ -1,0 +1,8 @@
+extend type Mutation @group(middleware: ["jwt.auth"], namespace: "App\\Http\\GraphQL\\Mutations") {
+    logout: LogoutPayload @field(resolver: "AccountMutator@logout")
+}
+
+type LogoutPayload {
+    status: String!
+    msg: String!
+   }

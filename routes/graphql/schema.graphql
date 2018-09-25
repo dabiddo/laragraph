@@ -1,4 +1,5 @@
 #import user.graphql
+#import account.graphql
 
 extend type Mutation @group(namespace: "App\\Http\\GraphQL\\Mutations") {
   login(
